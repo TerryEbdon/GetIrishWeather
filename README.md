@@ -15,7 +15,7 @@ folder.
 
 ## Problem solving
 
-1. Make sure your're using a compatible version of Java, see the prerequisites
+1. Make sure you're using a compatible version of Java, see the prerequisites
 section for details. Use the command `java --version` to determine which version
 you're using.
 2. The app creates a log folder. Check the log files, in that folder, for errors.
