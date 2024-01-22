@@ -3,6 +3,25 @@
 This app downloads the weather forecast podcasts, in English, as they becomes
 available.
 
+## Using the app
+
+1. Install a compatible version of Java, see the prerequisites section.
+1. Unzip or untar the distribution into a new folder.
+2. Open a command window.
+3. cd to the folder you used for step 1.
+4. type the command `GetIrishWeather\bin\GetIrishWeather`
+5. The latest weather forecast will be downloaded as an mp3 into the current
+folder.
+
+## Problem solving
+
+1. Make sure your're using a compatible version of Java, see the prerequisites
+section for details. Use the command `java --version` to determine which version
+you're using.
+2. The app creates a log folder. Check the log files, in that folder, for errors.
+3. If you still can't get it to work then please [log
+an issue][issue].
+
 ## Background
 
 The Weather Forecast from Met Éireann is under a creative commons by attribution
