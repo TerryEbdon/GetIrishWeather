@@ -43,8 +43,8 @@ Currently this app requires Java 17 or higher. If you need it to work with a
 different version then either build it from source or [log an issue][issue] and
 I'll take a look.
 
-This `GetIrishWeather` should work on any system with a suitable version of Java
-and am internet connection. If it doesn't work on your system then please [log
+This `GetIrishWeather` app should work on any system with a suitable version of Java
+and an internet connection. If it doesn't work on your system then please [log
 an issue][issue].
 
 [issue]: https://github.com/TerryEbdon/GetIrishWeather/issues
