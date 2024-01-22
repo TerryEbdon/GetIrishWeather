@@ -2,6 +2,7 @@ package net.ebdon.irishweather
 
 import groovy.ant.AntBuilder
 
+@groovy.util.logging.Log4j2
 class IrishWeather {
   String run() {
     final String rssFileName = 'rss.xml'
@@ -17,9 +18,9 @@ class IrishWeather {
     // writePubDatesFile( rss )
 
     final String mp3FileName = buildMp3FileName( cleanTitle( title ))
-    println mp3Url
-    println title
-    println mp3FileName
+    log.info mp3Url
+    log.info title
+    log.info mp3FileName
     ant.get( src: mp3Url, dest: mp3FileName, usetimestamp: true, quiet: true )
   }
 

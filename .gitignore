@@ -4,5 +4,5 @@
 # Ignore Gradle build output directory
 build
 *.txt
-*.xml
+rss.xml
 *.mp3
