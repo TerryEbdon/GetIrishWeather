@@ -6,3 +6,4 @@ build
 *.txt
 rss.xml
 *.mp3
+*.log
