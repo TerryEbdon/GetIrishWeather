@@ -4,6 +4,12 @@ import groovy.ant.AntBuilder
 
 @groovy.util.logging.Log4j2
 class IrishWeather {
+
+  final String q = '\"'
+  final AntBuilder ant = new AntBuilder()
+  String mp3FileName
+  String trimmedFileName
+
   String run() {
     final String rssFileName = 'rss.xml'
     final String rssUrl = 'https://audioboom.com/channels/5003380.rss'
@@ -17,14 +23,19 @@ class IrishWeather {
 
     // writePubDatesFile( rss )
 
-    final String mp3FileName = buildMp3FileName( cleanTitle( title ))
+    buildMp3FileNames( cleanTitle( title ))
     log.info mp3Url
     log.info title
     log.info mp3FileName
     ant.get( src: mp3Url, dest: mp3FileName, usetimestamp: true, quiet: true )
+    if ( new File(mp3FileName).exists() ) {
+      trimAudio()
+    } else {
+      log.error "Couldn't download $mp3FileName"
+    }
   }
 
-  final String buildMp3FileName( final String title ) {
+  void buildMp3FileNames( final String title ) {
     def fnBits        = title.split()
     String year       = fnBits[-1]
     int month         = getMonthNumber( fnBits[-2] )
@@ -36,8 +47,9 @@ class IrishWeather {
       hour += 12
     }
 
-    String.format( '%4s-%02d-%02d_%02d00_%s.mp3',
+    trimmedFileName = String.format( '%4s-%02d-%02d_%02d00_%s.mp3',
         year, month, day, hour, dayName )
+    mp3FileName = 'raw_' + trimmedFileName
   }
 
   private final int getMonthNumber(String monthName) {
@@ -56,6 +68,39 @@ class IrishWeather {
       pubDates << String.format( '%s -- %s%n',
         it.pubDate.text(), title
       )
+    }
+  }
+
+  void trimAudio() {
+    final String logLevel = '-loglevel error'
+    final String input = "-i $q$mp3FileName$q"
+
+    final String trimTrackArgs = 
+      'areverse,atrim=start=0.2,silenceremove=start_periods=1:start_silence=0.1:start_threshold=0.02'
+    final String ffmpedArgs = "$logLevel -af $q$trimTrackArgs,$trimTrackArgs$q"
+    final String argsLine = "-y $input $ffmpedArgs $q$trimmedFileName$q"
+    log.info "argsLine: $argsLine"
+    ant.exec (
+      dir               : '.',
+      executable        : 'ffmpeg',
+      outputproperty    : 'trimCmdOut',
+      errorproperty     : 'trimCmdError',
+      resultproperty    : 'trimCmdResult'
+    ) {
+      arg( line: argsLine )
+    }
+    final int execRes       = ant.project.properties.trimCmdResult.toInteger()
+    final String execOut    = ant.project.properties.trimCmdOut
+    final String execErr    = ant.project.properties.trimCmdError
+    log.info "trimAudio execOut = $execOut"
+    log.info "trimAudio execErr = $execErr"
+    log.info "trimAudio execRes = $execRes"
+
+    if ( !execErr.empty ) {
+      log.error 'Could not trim audio'
+      log.error execErr
+      log.warn "out: $execOut"
+      log.warn "result: $execRes"
     }
   }
 
