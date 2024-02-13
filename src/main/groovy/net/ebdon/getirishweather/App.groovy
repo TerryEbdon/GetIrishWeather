@@ -30,9 +30,18 @@ class IrishWeather {
     ant.get( src: mp3Url, dest: mp3FileName, usetimestamp: true, quiet: true )
     if ( new File(mp3FileName).exists() ) {
       trimAudio()
+      makeAvailable()
     } else {
       log.error "Couldn't download $mp3FileName"
     }
+  }
+
+  void makeAvailable() {
+    ant.copy(
+      file     : trimmedFileName,
+      tofile   : 'weather.mp3',
+      overwrite: true
+    )
   }
 
   void buildMp3FileNames( final String title ) {
