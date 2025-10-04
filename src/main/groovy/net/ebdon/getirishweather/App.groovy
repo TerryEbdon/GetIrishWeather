@@ -1,6 +1,7 @@
 package net.ebdon.irishweather
 
 import groovy.ant.AntBuilder
+import groovy.xml.XmlParser
 
 @groovy.util.logging.Log4j2
 class IrishWeather {
