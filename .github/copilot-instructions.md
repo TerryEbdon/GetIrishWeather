@@ -24,3 +24,12 @@ The most-recent stable library versions are preferred.
 - English is the preferred language for all comments, issues, commits, pull
   requests and other communications. Spelling and grammar should use British
   or Irish conventions where possible.
+- Unit tests must be derived from groovy.test.GroovyTestCase.
+- Use explicit types, do not use def.
+- Use Power Assertions in unit tests.
+- Unit tests must mock all network access with groovy.mock.interceptor.MockFor.
+- Unit tests must mock all file system use with groovy.mock.interceptor.MockFor.
+- Method names must be camel cased.
+- Variable names must be camel cased.
+- Do not use underscores in method names or variable names.
+

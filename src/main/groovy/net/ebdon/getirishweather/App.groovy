@@ -99,9 +99,10 @@ class IrishWeather {
     ) {
       arg( line: argsLine )
     }
-    final int execRes       = ant.project.properties.trimCmdResult.toInteger()
-    final String execOut    = ant.project.properties.trimCmdOut
-    final String execErr    = ant.project.properties.trimCmdError
+    Map<String,String> antProperties = ant.project.properties
+    final int execRes       = antProperties.trimCmdResult.toInteger()
+    final String execOut    = antProperties.trimCmdOut
+    final String execErr    = antProperties.trimCmdError
     log.info "trimAudio execOut = $execOut"
     log.info "trimAudio execErr = $execErr"
     log.info "trimAudio execRes = $execRes"
