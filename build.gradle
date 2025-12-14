@@ -34,8 +34,8 @@ dependencies {
   // testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
   testImplementation 'junit:junit:4.13.2'
 
-  codenarc'org.codenarc:CodeNarc:3.7.0-groovy-4.0'
-  codenarc'org.apache.groovy:groovy-all:4.0.29'
+  codenarc 'org.codenarc:CodeNarc:3.7.0-groovy-4.0'
+  codenarc 'org.apache.groovy:groovy-all:4.0.29'
 }
 
 application {
