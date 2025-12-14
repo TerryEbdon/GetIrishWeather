@@ -156,7 +156,7 @@ ruleset {
     DuplicateNumberLiteral
     DuplicateStringLiteral
 
-    // rulesets/enhanced.xml -- Enabling these breaks the Codenarc plugin
+    // rulesets/enhanced.xml -- Enabling these breaks the CodeNarc plugin
     // CloneWithoutCloneable
     // JUnitAssertEqualsConstantActualValue
     // MissingOverrideAnnotation
