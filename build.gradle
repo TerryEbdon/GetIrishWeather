@@ -10,6 +10,7 @@ plugins {
   id 'groovy'
   id 'application'
   id 'codenarc'
+  id 'jacoco'  // Use `gradlew jacocoTestReport` to create test coverage report.
 }
 
 codenarcMain {
