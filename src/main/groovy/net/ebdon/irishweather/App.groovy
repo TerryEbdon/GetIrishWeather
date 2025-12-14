@@ -87,8 +87,8 @@ class IrishWeather {
 
     final String trimTrackArgs = 
       'areverse,atrim=start=0.2,silenceremove=start_periods=1:start_silence=0.1:start_threshold=0.02'
-    final String ffmpedArgs = "$logLevel -af $q$trimTrackArgs,$trimTrackArgs$q"
-    final String argsLine = "-y $input $ffmpedArgs $q$trimmedFileName$q"
+    final String ffmpegArgs = "$logLevel -af $q$trimTrackArgs,$trimTrackArgs$q"
+    final String argsLine = "-y $input $ffmpegArgs $q$trimmedFileName$q"
     log.info "argsLine: $argsLine"
     ant.exec (
       dir               : '.',

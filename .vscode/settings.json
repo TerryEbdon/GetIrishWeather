@@ -1,9 +1,17 @@
 {
   "cSpell.words": [
-    "gradlew",
-    "jacoco",
+    "atrim",
     "codenarc",
+    "errorproperty",
+    "gradlew",
     "irishweather",
-    "Newify"
+    "jacoco",
+    "loglevel",
+    "Newify",
+    "outputproperty",
+    "resultproperty",
+    "silenceremove",
+    "tofile",
+    "usetimestamp"
   ]
 }
