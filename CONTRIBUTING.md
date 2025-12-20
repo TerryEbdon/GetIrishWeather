@@ -25,7 +25,7 @@ We actively welcome your pull requests:
 1. Fork the repo and create your branch from `master`.
 2. If you've added code that should be tested:
    1. Add tests.
-   2. Address issues identified by [CodeNarc]
+   2. Address issues identified by [CodeNarc].
 3. If you've changed APIs, update the documentation.
 4. Ensure the test suite passes.
 5. Issue that pull request!
@@ -71,7 +71,7 @@ People *love* thorough bug reports. I'm not even kidding.
 This document was adapted from @briandk's [basic template]
 
 [issues]: https://github.com/TerryEbdon/GetIrishWeather/issues
-[opening a new issue]: https://github.com/TerryEbdon/GetIrishWeather/issues
+[opening a new issue]: https://github.com/TerryEbdon/GetIrishWeather/issues/new
 [basic template]: https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62
 [Apache License version 2.0]: https://www.apache.org/licenses/LICENSE-2.0
 [CodeNarc]: https://codenarc.org/
