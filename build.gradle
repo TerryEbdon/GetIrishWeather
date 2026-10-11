@@ -45,7 +45,7 @@ dependencies {
   codenarc 'org.apache.groovy:groovy-all:5.1.3'
 }
 
-project.version = 'v1.1.0'
+project.version = 'v1.1.1'
 
 jar {
   manifest {
