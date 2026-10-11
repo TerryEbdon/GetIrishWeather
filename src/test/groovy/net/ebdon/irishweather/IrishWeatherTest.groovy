@@ -27,6 +27,17 @@ class IrishWeatherTest extends GroovyTestCase {
   }
 
   /**
+   * Verify cleanTitle copes with multiple spaces following the episode number
+   * and colon.
+   */
+  void testCleanTitleWithExtraSpace() {
+    IrishWeather iw = new IrishWeather()
+    String rawTitle = '3730:  Ireland\'s Weather 8am Tuesday 6 October 2026'
+    String cleaned = iw.cleanTitle(rawTitle)
+    assert cleaned == '8am Tuesday 6 October 2026'
+  }
+
+  /**
    * Verify buildMp3FileNames produces expected filenames for an AM
    * timestamp. The expected format is 'YYYY-MM-DD_HH00_DDD.mp3'.
    */
