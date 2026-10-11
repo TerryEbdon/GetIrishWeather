@@ -67,7 +67,7 @@ class IrishWeather {
   }
 
   final String cleanTitle( String title ) {
-    final String mp3FileNameRegex = /([0-9]+): Ireland's Weather /
+    final String mp3FileNameRegex = /([0-9]+):\s+Ireland's Weather /
     title.replaceAll( mp3FileNameRegex, '' )
   }
 
